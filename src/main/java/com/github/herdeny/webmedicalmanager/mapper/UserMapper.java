@@ -19,6 +19,10 @@ public interface UserMapper {
     @Select("select * from user where username = #{username}")
     User selectUserByUsername(String username);
 
+    //根据姓名查询用户
+    @Select("select * from user where name LIKE CONCAT('%', #{name}, '%')")
+    List<User> selectUserByName(String name);
+
     //添加用户
     @Insert("insert into user(username,password,phone) values (#{username},#{password},#{phone})")
     void insertUser(String username, String password, BigInteger phone);
