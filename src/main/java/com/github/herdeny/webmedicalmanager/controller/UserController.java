@@ -76,6 +76,7 @@ public class UserController {
             UserMap.put("username", u.getUsername());
             UserMap.put("admin", u.getAdmin());
             String token = JwtUtil.genToken(UserMap);
+            ThreadLocalUtil.set(UserMap);
             return Result.success(token);
         }
     }
