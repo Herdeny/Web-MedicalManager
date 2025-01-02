@@ -32,7 +32,7 @@ public class DiagnosisController {
     }
 
     /// 修改诊断
-    /// @param diagnosis 诊断信息-必须包含code, diaSymtom, 不需要包含doctorCode, UserCode, diaTime,其他字段有没有都可以
+    /// @param diagnosis 诊断信息-必须包含code, diaSymptom, 不需要包含doctorCode, UserCode, diaTime,其他字段有没有都可以
     @PutMapping("/update")
     public Result update(@RequestParam Diagnosis diagnosis){
         diagnosisService.updateDiagnosis(diagnosis);

@@ -3,6 +3,7 @@ package com.github.herdeny.webmedicalmanager.pojo;
 import lombok.Data;
 
 import java.math.BigInteger;
+import java.util.Date;
 
 @Data
 public class User {
@@ -15,8 +16,5 @@ public class User {
     private Integer mRecord;
     private BigInteger phone;
     private boolean admin;
-
-    public boolean getAdmin() {
-        return admin;
-    }
+    private Date regTime;
 }

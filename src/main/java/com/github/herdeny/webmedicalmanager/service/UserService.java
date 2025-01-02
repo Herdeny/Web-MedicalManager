@@ -21,5 +21,9 @@ public interface UserService {
 
     void deleteUser(int code);
 
+    int selectAllUserCount();
+
+    int selectMonthUserCount(String month);
+
 
 }

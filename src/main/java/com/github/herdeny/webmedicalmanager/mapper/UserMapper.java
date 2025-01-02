@@ -34,6 +34,14 @@ public interface UserMapper {
     @Select("select * from user")
     List<User> selectAllUser();
 
+    // 获取全部用户数量
+    @Select("select count(*) from user")
+    int selectAllUserCount();
+
+    // 获取月用户数量
+    @Select("select count(*) from user where date_format(reg_time, '%Y-%m') = #{time}")
+    int selectMonthUserCount(String month);
+
     //删除用户
     @Delete("delete from user where code = #{code}")
     void deleteUserByCode(int code);

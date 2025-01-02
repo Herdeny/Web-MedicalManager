@@ -14,6 +14,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -75,7 +77,7 @@ public class UserController {
             Map<String, Object> UserMap = new HashMap<>();
             UserMap.put("code", u.getCode());
             UserMap.put("username", u.getUsername());
-            UserMap.put("admin", u.getAdmin());
+            UserMap.put("admin", u.isAdmin());
             String token = JwtUtil.genToken(UserMap);
             return Result.success(token);
         }
@@ -137,6 +139,22 @@ public class UserController {
             userService.deleteUser(u.getCode());
             return Result.success();
         } else return Result.fail(202);
+    }
+
+    /// 查询总用户数
+    @GetMapping("/count/all")
+    public Result<Integer> count() {
+        return Result.success(userService.selectAllUserCount());
+    }
+
+    /// 查询月用户数
+    /// @param month 月份,格式为"yyyy-MM",如"2025-01"，不填为当前月
+    @GetMapping("/count/month")
+    public Result<Integer> countMonth(@RequestParam(required = false) String month) {
+        if (month == null) {
+            month = new SimpleDateFormat("yyyy-MM").format(new Date());
+        }
+        return Result.success(userService.selectMonthUserCount(month));
     }
 
 }

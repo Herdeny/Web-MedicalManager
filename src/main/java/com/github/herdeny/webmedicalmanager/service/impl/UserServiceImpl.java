@@ -54,9 +54,19 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
     public void deleteUser(int code) {
         userMapper.deleteUserByCode(code);
     }
 
+    @Override
+    public int selectAllUserCount() {
+        return userMapper.selectAllUserCount();
+    }
+
+    @Override
+    public int selectMonthUserCount(String month) {
+        return userMapper.selectMonthUserCount(month);
+    }
 
 }
