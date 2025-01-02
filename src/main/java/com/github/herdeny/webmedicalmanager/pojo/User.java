@@ -2,6 +2,8 @@ package com.github.herdeny.webmedicalmanager.pojo;
 
 import lombok.Data;
 
+import java.math.BigInteger;
+
 @Data
 public class User {
     private Integer code;
@@ -11,5 +13,10 @@ public class User {
     private Gender gender;
     private Integer age;
     private Integer mRecord;
-    private Integer phone;
+    private BigInteger phone;
+    private boolean admin;
+
+    public boolean getAdmin() {
+        return admin;
+    }
 }
