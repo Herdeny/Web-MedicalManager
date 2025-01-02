@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.herdeny.webmedicalmanager.mapper.DiagnosisMapper">
+
+    <!-- Insert Diagnosis with mandatory and optional fields -->
+    <insert id="insertDiagnosis" parameterType="com.github.herdeny.webmedicalmanager.pojo.Diagnosis">
+        INSERT INTO diagnosis
+        (
+        doctor_code,
+        user_code,
+        dia_symptom,
+        dia_diagnosis,
+        dia_medicine,
+        dia_advise,
+        dia_time,
+        user_temper,
+        blood_pressure_high,
+        blood_pressure_low,
+        heart_rate
+        )
+        VALUES
+        (
+        #{doctorCode},
+        #{userCode},
+        #{diaSymptom},
+        <if test="diaDiagnosis != null">#{diaDiagnosis}</if>,
+        <if test="diaMedicine != null">#{diaMedicine}</if>,
+        <if test="diaAdvise != null">#{diaAdvise}</if>,
+        now(),
+        <if test="userTemper != null">#{userTemper}</if>,
+        <if test="bloodPressureHigh != null">#{bloodPressureHigh}</if>,
+        <if test="bloodPressureLow != null">#{bloodPressureLow}</if>,
+        <if test="heartRate != null">#{heartRate}</if>
+        )
+    </insert>
+    <update id="updateDiagnosis" parameterType="com.github.herdeny.webmedicalmanager.pojo.Diagnosis">
+        Update diagnosis
+        SET
+        dia_symptom = #{diaSymptom}
+        <if test="diaDiagnosis != null">,dia_diagnosis = #{diaDiagnosis}</if>
+        <if test="diaMedicine != null">,dia_medicine = #{diaMedicine}</if>
+        <if test="diaAdvise != null">,dia_advise = #{diaAdvise}</if>
+        <if test="userTemper != null">,user_temper = #{userTemper}</if>
+        <if test="bloodPressureHigh != null">,blood_pressure_high = #{bloodPressureHigh}</if>
+        <if test="bloodPressureLow != null">,blood_pressure_low = #{bloodPressureLow}</if>
+        <if test="heartRate != null">,heart_rate = #{heartRate}</if>
+        WHERE code = #{code}
+    </update>
+</mapper>
