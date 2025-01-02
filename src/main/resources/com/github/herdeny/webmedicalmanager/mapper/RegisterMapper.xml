@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.github.herdeny.webmedicalmanager.mapper.RegisterMapper">
+
+    <insert id="insertRegister">
+        INSERT INTO register (doctor_code, user_code, visit_time, reg_time, remark)
+        VALUES (#{doctorCode}, #{UserCode}, #{visitTime}, now(), #{remark,jdbcType=VARCHAR})
+    </insert>
+
+</mapper>
