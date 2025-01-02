@@ -29,12 +29,13 @@ public class UserController {
     //注册
     // 204-用户名已存在
     @PostMapping("/register")
-    public Result register(@Pattern(regexp = "^[a-zA-Z0-9_]{5,16}$") String username, @Pattern(regexp = "^[a-zA-Z0-9_]{5,16}$") String password, @Pattern(regexp = "^1[3456789]\\d{9}$") BigInteger phone) {
+    public Result register(@Pattern(regexp = "^[a-zA-Z0-9_]{5,16}$") String username, @Pattern(regexp = "^[a-zA-Z0-9_]{5,16}$") String password, @Pattern(regexp = "^1[3456789]\\d{9}$") String phone) {
         //查询用户
         User u = userService.selectUserByUsername(username);
         if (u == null) {
             //未占用，返回为空
-            userService.insertUser(username, Md5Util.getMD5String(password), phone); //注册
+            BigInteger phoneNum = new BigInteger(phone);
+            userService.insertUser(username, Md5Util.getMD5String(password), phoneNum); //注册
             return Result.success(); //返回结果
         } else return Result.fail(204);
     }
@@ -76,7 +77,6 @@ public class UserController {
             UserMap.put("username", u.getUsername());
             UserMap.put("admin", u.getAdmin());
             String token = JwtUtil.genToken(UserMap);
-            ThreadLocalUtil.set(UserMap);
             return Result.success(token);
         }
     }

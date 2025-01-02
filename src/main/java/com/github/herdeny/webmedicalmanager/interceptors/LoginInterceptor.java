@@ -19,7 +19,9 @@ public class LoginInterceptor implements HandlerInterceptor {
         String token = request.getHeader("Authorization");
         //验证token
         try {
+            System.out.println(token);
             Map<String, Object> UserMap = JwtUtil.parseToken(token);
+            System.out.println(UserMap);
             ThreadLocalUtil.set(UserMap);
             return true;
         } catch (Exception e) {
