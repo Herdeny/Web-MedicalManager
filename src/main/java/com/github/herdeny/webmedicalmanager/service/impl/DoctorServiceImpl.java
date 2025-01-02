@@ -52,4 +52,20 @@ public class DoctorServiceImpl implements DoctorService {
         pageBean.setItems(doctorPage.getResult());
         return pageBean;
     }
+
+    @Override
+    public void insertDoctor(Doctor doctor) {
+        doctorMapper.insertDoctor(doctor);
+    }
+
+    @Override
+    public void updateDoctor(Doctor doctor) {
+        doctorMapper.updateDoctor(doctor);
+    }
+
+    @Override
+    public void deleteDoctor(int code) {
+        doctorMapper.deleteDoctorByCode(code);
+
+    }
 }

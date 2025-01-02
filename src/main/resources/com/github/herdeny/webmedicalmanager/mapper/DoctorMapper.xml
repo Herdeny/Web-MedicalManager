@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.herdeny.webmedicalmanager.mapper.DoctorMapper">
+    <update id="updateDoctor">
+        Update doctor
+        SET
+        name = #{name}
+        <if test="gender != null">
+            ,gender = #{gender}
+        </if>
+        <if test="departmentCode != null">
+            ,department_code = #{departmentCode}
+        </if>
+        <if test="avatar != null">
+            ,avatar = #{avatar}
+        </if>
+        <if test="description != null">
+            ,description = #{description}
+        </if>
+        <if test="title != null">
+            ,title= #{title}
+        </if>
+        <if test="age != null">
+            ,age = #{age}
+        </if>
+        WHERE code = #{code}
+    </update>
+</mapper>

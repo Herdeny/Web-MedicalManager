@@ -17,4 +17,10 @@ public interface DoctorService {
     List<Doctor> selectAllDoctor();
 
     PageBean<Doctor> selectAllDoctorPage(int page, int size);
+
+    void insertDoctor(Doctor doctor);
+
+    void updateDoctor(Doctor doctor);
+
+    void deleteDoctor(int code);
 }
