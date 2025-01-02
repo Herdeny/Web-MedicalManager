@@ -8,6 +8,7 @@ public class Medicine {
     private String name;
     private Class type;
     private String producer;
+    private String specifications;
     private String batch;
     private Integer stock;
 }
