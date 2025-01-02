@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.herdeny.webmedicalmanager.mapper.MedicineMapper">
+    <update id="updateMedicine">
+        Update medicine
+        SET
+        name = #{name}
+        <if test="type != null">
+            ,type = #{type}
+        </if>
+        <if test="specifications != null">
+            ,specifications = #{specifications}
+        </if>
+        <if test="producer != null">
+            ,producer = #{producer}
+        </if>
+        <if test="batch != null">
+            ,batch = #{batch}
+        </if>
+        <if test="stock != null">
+            ,stock = #{stock}
+        </if>
+        WHERE code = #{code}
+    </update>
+</mapper>
