@@ -25,6 +25,9 @@
         <if test="phone != null">
             ,phone = #{phone}
         </if>
+        <if test="admin != null">
+            ,admin = #{admin}
+        </if>
         WHERE code = #{code}
     </update>
 </mapper>
