@@ -18,7 +18,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/// 用户管理
 @RestController
 @RequestMapping("/user")
 @Validated

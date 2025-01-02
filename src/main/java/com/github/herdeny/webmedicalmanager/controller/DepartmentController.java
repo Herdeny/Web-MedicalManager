@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/// 科室管理
 @RestController
 @RequestMapping("/depart")
 @Validated

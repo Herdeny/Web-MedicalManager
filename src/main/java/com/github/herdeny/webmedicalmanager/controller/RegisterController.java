@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
-/// 挂号管理
 @RestController
 @RequestMapping("/register")
 @Validated

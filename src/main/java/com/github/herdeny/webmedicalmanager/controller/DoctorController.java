@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/// 医生管理
 @RestController
 @RequestMapping("/doctor")
 @Validated

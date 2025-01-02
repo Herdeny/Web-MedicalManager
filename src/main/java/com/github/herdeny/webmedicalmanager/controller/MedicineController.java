@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/// 药品管理
 @RestController
 @RequestMapping("/medicine")
 @Validated
