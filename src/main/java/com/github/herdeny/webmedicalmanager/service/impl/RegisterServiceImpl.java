@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 
 @Service
-public class RegisterImpl implements RegisterService {
+public class RegisterServiceImpl implements RegisterService {
 
     @Autowired
     private RegisterMapper registerMapper;
