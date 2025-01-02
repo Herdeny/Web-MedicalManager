@@ -120,7 +120,7 @@ public class UserController {
 
     //更新用户信息
     @PutMapping("/update")
-    public Result update(@RequestBody User user) {
+    public Result<User> update(@RequestBody User user) {
         //这里传过来的密码使用户输入的明文密码需要加密为MD5
         if (user.getPassword() != null)
             user.setPassword(Md5Util.getMD5String(user.getPassword()));
