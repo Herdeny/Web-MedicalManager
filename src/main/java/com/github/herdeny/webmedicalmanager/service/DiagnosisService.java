@@ -1,6 +1,7 @@
 package com.github.herdeny.webmedicalmanager.service;
 
 import com.github.herdeny.webmedicalmanager.pojo.Diagnosis;
+import com.github.herdeny.webmedicalmanager.pojo.PageBean;
 
 import java.util.List;
 
@@ -18,4 +19,6 @@ public interface DiagnosisService {
     Diagnosis selectDiagnosisByDoctorCode(int doctorCode);
 
     List<Diagnosis> selectAllDiagnosis();
+
+    PageBean<Diagnosis> selectAllDiagnosisByPage(Integer pageNum, Integer pageSize);
 }
