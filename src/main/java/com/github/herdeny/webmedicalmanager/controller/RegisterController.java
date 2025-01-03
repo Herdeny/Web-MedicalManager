@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/register")
@@ -71,6 +73,19 @@ public class RegisterController {
         return Result.success(registerService.countMonth(date));
     }
 
+    /// 日科室就诊分布
+    /// 返回科室序号及对应人数
+    ///
+    /// @param date 日期-格式为yyyy-MM-dd，如2021-01-01，不传默认为当天
+    @GetMapping("/count/department")
+    public Result<List<Map<Integer, Integer>>> department(@RequestParam(required = false) String date) {
+        if (date == null) {
+            date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        }
+        return Result.success(registerService.countDepartment(date));
+    }
+
+
     /// 统计日平均等待时间
     /// 以时间为单位
     ///
@@ -82,4 +97,6 @@ public class RegisterController {
         }
         return Result.success(registerService.waitDay(date));
     }
+
+
 }

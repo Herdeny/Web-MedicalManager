@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class RegisterServiceImpl implements RegisterService {
@@ -37,6 +39,11 @@ public class RegisterServiceImpl implements RegisterService {
     @Override
     public int countMonth(String date) {
         return registerMapper.countMonth(date);
+    }
+
+    @Override
+    public List<Map<Integer, Integer>> countDepartment(String date) {
+        return registerMapper.countDepartment(date);
     }
 
     @Override
