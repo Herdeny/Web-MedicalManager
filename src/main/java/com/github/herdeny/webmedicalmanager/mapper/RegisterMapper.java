@@ -1,5 +1,6 @@
 package com.github.herdeny.webmedicalmanager.mapper;
 
+import com.github.herdeny.webmedicalmanager.pojo.Register;
 import com.github.herdeny.webmedicalmanager.pojo.RegisterStatus;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
@@ -35,5 +36,6 @@ public interface RegisterMapper {
     @Select("select avg(visit_time-reg_time)/60 from register where date_format(reg_time, '%Y-%m-%d') = #{date}")
     int countWaitDay(String date);
 
-
+    @Select("select * from register where user_code = #{userCode}")
+    List<Register> selectRegisterByUserCode(int userCode);
 }

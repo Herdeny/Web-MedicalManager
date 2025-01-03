@@ -1,6 +1,7 @@
 package com.github.herdeny.webmedicalmanager.service.impl;
 
 import com.github.herdeny.webmedicalmanager.mapper.RegisterMapper;
+import com.github.herdeny.webmedicalmanager.pojo.Register;
 import com.github.herdeny.webmedicalmanager.pojo.RegisterStatus;
 import com.github.herdeny.webmedicalmanager.service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,11 @@ public class RegisterServiceImpl implements RegisterService {
     @Override
     public List<Map<Integer, Integer>> countDepartment(String date) {
         return registerMapper.countDepartment(date);
+    }
+
+    @Override
+    public List<Register> selectRegisterByUserCode(int userCode) {
+        return registerMapper.selectRegisterByUserCode(userCode);
     }
 
     @Override

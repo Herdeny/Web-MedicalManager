@@ -1,5 +1,6 @@
 package com.github.herdeny.webmedicalmanager.service;
 
+import com.github.herdeny.webmedicalmanager.pojo.Register;
 import com.github.herdeny.webmedicalmanager.pojo.RegisterStatus;
 
 import java.util.Date;
@@ -20,4 +21,6 @@ public interface RegisterService {
     int countMonth(String date);
 
     List<Map<Integer, Integer>> countDepartment(String date);
+
+    List<Register> selectRegisterByUserCode(int userCode);
 }

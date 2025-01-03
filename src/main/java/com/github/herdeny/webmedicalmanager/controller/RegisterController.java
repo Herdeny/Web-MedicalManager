@@ -37,6 +37,12 @@ public class RegisterController {
         return Result.success();
     }
 
+    /// 按用户序号查询挂号信息
+    @GetMapping("/registerInfo/byUserCode")
+    public Result<List<Register>> selectRegisterByUserCode(@RequestParam Integer UserCode) {
+        return Result.success(registerService.selectRegisterByUserCode(UserCode));
+    }
+
     /// 修改挂号状态
     @PutMapping("/update")
     public Result update(@RequestParam Integer code, RegisterStatus status) {
