@@ -4,6 +4,8 @@ import com.github.herdeny.webmedicalmanager.pojo.Diagnosis;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 @Mapper
 public interface DiagnosisMapper {
 
@@ -24,6 +26,10 @@ public interface DiagnosisMapper {
     //通过病人序号查询诊断
     @Select("select * from diagnosis where user_code = #{userCode}")
     Diagnosis selectDiagnosisByUserCode(int userCode);
+
+    // 查询所有诊断
+    @Select("select * from diagnosis")
+    List<Diagnosis> selectAllDiagnosis();
 
     //通过序号删除诊断
     void deleteDiagnosisByCode(int code);

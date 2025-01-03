@@ -6,6 +6,8 @@ import com.github.herdeny.webmedicalmanager.service.DiagnosisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DiagnosisServiceImpl implements DiagnosisService {
     @Autowired
@@ -39,5 +41,10 @@ public class DiagnosisServiceImpl implements DiagnosisService {
     @Override
     public Diagnosis selectDiagnosisByDoctorCode(int doctorCode) {
         return diagnosisMapper.selectDiagnosisByDoctorCode(doctorCode);
+    }
+
+    @Override
+    public List<Diagnosis> selectAllDiagnosis() {
+        return diagnosisMapper.selectAllDiagnosis();
     }
 }

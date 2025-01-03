@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/diagnosis")
 @Validated
@@ -72,6 +74,12 @@ public class DiagnosisController {
         Doctor d = doctorService.selectDoctorByCode(doctorCode);
         if (d == null) return Result.fail(204);
         return Result.success(diagnosisService.selectDiagnosisByDoctorCode(doctorCode));
+    }
+
+    /// 查询所有诊断
+    @GetMapping("/diagnosisInfo/all")
+    public Result<List<Diagnosis>> selectAllDiagnosis(){
+        return Result.success(diagnosisService.selectAllDiagnosis());
     }
 
 }
