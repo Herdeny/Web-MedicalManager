@@ -52,7 +52,7 @@ public class UserController {
         if (u != null) {
             BigInteger phoneNum = new BigInteger(phone);
             if (u.getPhone().equals(phoneNum)) {
-                u.setPassword(password);
+                u.setPassword(Md5Util.getMD5String(password));
                 userService.updateUser(u); //注册
                 return Result.success(); //返回结果
             } else return Result.fail(201);
