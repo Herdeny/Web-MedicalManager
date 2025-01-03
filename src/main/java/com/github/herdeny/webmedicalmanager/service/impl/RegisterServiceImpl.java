@@ -33,4 +33,9 @@ public class RegisterServiceImpl implements RegisterService {
     public int countDay(String date) {
         return registerMapper.countDay(date);
     }
+
+    @Override
+    public int waitDay(String date) {
+        return registerMapper.countWaitDay(date);
+    }
 }

@@ -12,4 +12,6 @@ public interface RegisterService {
     void deleteRegister(int code);
 
     int countDay(String date);
+
+    int waitDay(String date);
 }

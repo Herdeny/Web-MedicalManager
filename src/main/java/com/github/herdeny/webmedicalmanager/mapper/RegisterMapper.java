@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Mapper
 public interface RegisterMapper {
-    void insertRegister(int doctorCode,int UserCode ,Date visitTime, String remark);
+    void insertRegister(int doctorCode, int UserCode, Date visitTime, String remark);
 
     @Update("update register set status = #{status} where code = #{code}")
     void updateRegisterStatus(int code, RegisterStatus status);
@@ -21,4 +21,8 @@ public interface RegisterMapper {
 
     @Select("select count(*) from register where date_format(reg_time, '%Y-%m-%d') = #{time}")
     int countDay(String date);
+
+    //统计日平均等待时间
+    @Select("select avg(visit_time-reg_time)/60 from register where date_format(reg_time, '%Y-%m-%d') = #{date}")
+    int countWaitDay(String date);
 }
