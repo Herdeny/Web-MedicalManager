@@ -14,9 +14,9 @@ public interface DiagnosisService {
 
     Diagnosis selectDiagnosisByCode(int code);
 
-    Diagnosis selectDiagnosisByUserCode(int userCode);
+    List<Diagnosis> selectDiagnosisByUserCode(int userCode);
 
-    Diagnosis selectDiagnosisByDoctorCode(int doctorCode);
+    List<Diagnosis> selectDiagnosisByDoctorCode(int doctorCode);
 
     List<Diagnosis> selectAllDiagnosis();
 

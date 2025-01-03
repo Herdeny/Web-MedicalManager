@@ -37,12 +37,12 @@ public class DiagnosisServiceImpl implements DiagnosisService {
     }
 
     @Override
-    public Diagnosis selectDiagnosisByUserCode(int userCode) {
+    public List<Diagnosis> selectDiagnosisByUserCode(int userCode) {
         return diagnosisMapper.selectDiagnosisByUserCode(userCode);
     }
 
     @Override
-    public Diagnosis selectDiagnosisByDoctorCode(int doctorCode) {
+    public List<Diagnosis> selectDiagnosisByDoctorCode(int doctorCode) {
         return diagnosisMapper.selectDiagnosisByDoctorCode(doctorCode);
     }
 

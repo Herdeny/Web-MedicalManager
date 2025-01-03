@@ -21,11 +21,11 @@ public interface DiagnosisMapper {
 
     //通过医生序号查询诊断
     @Select("select * from diagnosis where doctor_code = #{doctorCode}")
-    Diagnosis selectDiagnosisByDoctorCode(int doctorCode);
+    List<Diagnosis> selectDiagnosisByDoctorCode(int doctorCode);
 
     //通过病人序号查询诊断
     @Select("select * from diagnosis where user_code = #{userCode}")
-    Diagnosis selectDiagnosisByUserCode(int userCode);
+    List<Diagnosis> selectDiagnosisByUserCode(int userCode);
 
     // 查询所有诊断
     @Select("select * from diagnosis")

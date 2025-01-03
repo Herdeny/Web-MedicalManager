@@ -63,7 +63,7 @@ public class DiagnosisController {
     ///
     /// @param userCode 用户序号Code
     @GetMapping("/diagnosisInfo/byUserCode")
-    public Result<Diagnosis> selectDiagnosisByUserCode(@RequestParam Integer userCode) {
+    public Result<List<Diagnosis>> selectDiagnosisByUserCode(@RequestParam Integer userCode) {
         User u = userService.selectUserByCode(userCode);
         if (u == null) return Result.fail(204);
         return Result.success(diagnosisService.selectDiagnosisByUserCode(userCode));
@@ -73,7 +73,7 @@ public class DiagnosisController {
     ///
     /// @param doctorCode 医生序号Code
     @GetMapping("/diagnosisInfo/byDoctorCode")
-    public Result<Diagnosis> selectDiagnosisByDoctorCode(@RequestParam Integer doctorCode) {
+    public Result<List<Diagnosis>> selectDiagnosisByDoctorCode(@RequestParam Integer doctorCode) {
         Doctor d = doctorService.selectDoctorByCode(doctorCode);
         if (d == null) return Result.fail(204);
         return Result.success(diagnosisService.selectDiagnosisByDoctorCode(doctorCode));
