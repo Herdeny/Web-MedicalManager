@@ -14,4 +14,6 @@ public interface RegisterService {
     int countDay(String date);
 
     int waitDay(String date);
+
+    int countMonth(String date);
 }

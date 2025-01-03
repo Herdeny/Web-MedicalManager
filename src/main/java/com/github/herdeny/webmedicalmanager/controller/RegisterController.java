@@ -50,20 +50,33 @@ public class RegisterController {
     }
 
     /// 统计日挂号人数
+    ///
     /// @param date 日期-格式为yyyy-MM-dd，如2021-01-01，不传默认为当天
     @GetMapping("/count/day")
-    public Result countDay(@RequestParam(required = false) String date) {
+    public Result<Integer> countDay(@RequestParam(required = false) String date) {
         if (date == null) {
             date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         }
         return Result.success(registerService.countDay(date));
     }
 
+    ///  统计月挂号人数
+    ///
+    /// @param date 日期-格式为yyyy-MM，如2021-01，不传默认为当月
+    @GetMapping("/count/month")
+    public Result<Integer> countMonth(@RequestParam(required = false) String date) {
+        if (date == null) {
+            date = new SimpleDateFormat("yyyy-MM").format(new Date());
+        }
+        return Result.success(registerService.countMonth(date));
+    }
+
     /// 统计日平均等待时间
     /// 以时间为单位
+    ///
     /// @param date 日期-格式为yyyy-MM-dd，如2021-01-01，不传默认为当天
     @GetMapping("/wait/day")
-    public Result waitDay(@RequestParam(required = false) String date) {
+    public Result<Integer> waitDay(@RequestParam(required = false) String date) {
         if (date == null) {
             date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         }

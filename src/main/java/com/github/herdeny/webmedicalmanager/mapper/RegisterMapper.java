@@ -22,7 +22,12 @@ public interface RegisterMapper {
     @Select("select count(*) from register where date_format(reg_time, '%Y-%m-%d') = #{time}")
     int countDay(String date);
 
+    @Select("select count(*) from register where date_format(reg_time, '%Y-%m') = #{time}")
+    int countMonth(String date);
+
     //统计日平均等待时间
     @Select("select avg(visit_time-reg_time)/60 from register where date_format(reg_time, '%Y-%m-%d') = #{date}")
     int countWaitDay(String date);
+
+
 }
