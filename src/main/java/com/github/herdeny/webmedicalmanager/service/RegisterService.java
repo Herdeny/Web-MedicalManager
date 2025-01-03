@@ -10,4 +10,6 @@ public interface RegisterService {
     void updateRegister(int code, RegisterStatus status);
 
     void deleteRegister(int code);
+
+    int countDay(String date);
 }

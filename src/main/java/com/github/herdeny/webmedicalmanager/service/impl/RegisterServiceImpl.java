@@ -28,4 +28,9 @@ public class RegisterServiceImpl implements RegisterService {
     public void deleteRegister(int code) {
         registerMapper.deleteRegister(code);
     }
+
+    @Override
+    public int countDay(String date) {
+        return registerMapper.countDay(date);
+    }
 }

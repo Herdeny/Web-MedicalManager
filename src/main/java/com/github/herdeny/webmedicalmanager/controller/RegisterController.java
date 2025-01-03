@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @RestController
@@ -46,5 +47,15 @@ public class RegisterController {
     public Result delete(@RequestParam Integer code) {
         registerService.deleteRegister(code);
         return Result.success();
+    }
+
+    /// 统计日挂号人数
+    /// @param date 日期-格式为yyyy-MM-dd，如2021-01-01，不传默认为当天
+    @GetMapping("/count/day")
+    public Result countDay(@RequestParam(required = false) String date) {
+        if (date == null) {
+            date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        }
+        return Result.success(registerService.countDay(date));
     }
 }
